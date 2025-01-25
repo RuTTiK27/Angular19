@@ -1,0 +1,34 @@
+<div class="center">
+    <h1>Data Binding</h1>
+</div>
+
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" class="background">
+    <mat-tab label="Interpolation">
+        <h1>Interpolation</h1>
+        <p>First Name: <strong>{{firstName}} {{lastName}}</strong></p>
+    </mat-tab>
+    <mat-tab label="Property Binding">
+        <h1>Property Binding</h1>
+        
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Roll No</mat-label>
+              <input matInput [placeholder]="rollNumberPlaceholder" [value]="rollNo">
+            </mat-form-field>
+          </form>
+
+    </mat-tab>
+    <mat-tab label="Event Binding">
+        <h1>Event Binding</h1>
+        <button mat-stroked-button (click)="showWelcome()">Hello, Click here!</button>
+    </mat-tab>
+    <mat-tab label="Two Way Data Binding">
+        <h1>Two Way Data</h1>
+        <mat-form-field class="example-full-width">
+            <mat-label>%</mat-label>
+            <input matInput [(ngModel)]="progressbarValue" placeholder="Enter Progressbar %" />
+        </mat-form-field>
+        <span>{{progressbarValue}}%</span>
+        <mat-progress-bar mode="determinate" [value]="progressbarValue"></mat-progress-bar>
+    </mat-tab>
+  </mat-tab-group>
