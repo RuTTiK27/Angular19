@@ -1,0 +1,34 @@
+<h2>Directives</h2>
+<mat-card appearance="outlined">
+    <mat-card-content>
+        <h3>*ngIf directive</h3>
+        <mat-slide-toggle [checked]="agreeOrNot" (change)="AgreeOrDisagree()">I agree</mat-slide-toggle>
+        
+        <div *ngIf="agreeOrNot">
+            <button mat-stroked-button>Continue</button>
+        </div>
+    </mat-card-content>
+</mat-card>
+<br>
+<mat-card appearance="outlined">
+    <mat-card-content>
+        <h3>*ngFor directive</h3>
+        <ul>
+            <li *ngFor="let city of cities">{{city}}</li>
+        </ul>
+        <hr>
+        <select #selectedEmpId (change)="onSelected(selectedEmpId.value)">
+            <option [value]="0">Select</option>
+            <option *ngFor="let emp of employees;let srno = index" [value]="emp.empId">{{srno+1}} - {{emp.empname}}</option>
+        </select>
+
+        <div *ngIf="selectedEmployee.empId!=0">
+            <h4>Selected Employee:</h4>
+            <p>Emp Id: {{selectedEmployee.empId}}</p>
+            <p>Emp Name: {{selectedEmployee.empname}}</p>
+            <p>Emp City: {{selectedEmployee.city}}</p>
+            <p>Emp Mobile: {{selectedEmployee.mobileNo}}</p>
+
+        </div>
+    </mat-card-content>
+</mat-card>
